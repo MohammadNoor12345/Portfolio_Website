@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mohammad Noor | Portfolio</title>
+  <meta name="description" content="Mohammad Noor — B.Tech CSE (2022–26), Full‑Stack Developer (MERN, Java, DSA). Projects: AI Facial Voting, Hospital & Library Systems. Available for internships & freelance." />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="icon" href="https://fav.farm/⚡"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mohammad Noor | Portfolio" />
+  <meta property="og:description" content="Full‑Stack Web Developer (MERN, Java, DSA) — modern, scalable, user‑centric apps." />
+  <meta property="og:type" content="website" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mohammad Noor",
+    "jobTitle": "Full‑Stack Web Developer",
+    "email": "mailto:mohammadnoor76354@gmail.com",
+    "url": "https://example.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/mohammad-noor-514b84255/",
+      "https://github.com/MohammadNoor12345"
+    ]
+  }
+  </script>
+
+  <!-- Libraries -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" rel="stylesheet" />
+  <!-- Extra: Lenis (buttery smooth scroll) + VanillaTilt (3D tilt) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.45/bundled/lenis.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+  <style>
+    :root{
+      --bg:#0b1220;          /* base dark */
+      --bg-soft:#0f172a;     /* section dark */
+      --card:#0b162b80;      /* glass */
+      --text:#e5e7eb;        /* light text */
+      --muted:#9aa6bf;       /* muted text */
+      --brand:#22d3ee;       /* cyan */
+      --brand2:#8b5cf6;      /* violet */
+      --accent:#38bdf8;      /* sky */
+      --warn:#fbbf24;        /* amber */
+      --ok:#34d399;          /* green */
+      --danger:#ef4444;      /* red */
+      --shadow:0 15px 40px rgba(0,0,0,.45);
+      --radius:22px;
+    }
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"Poppins",system-ui,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+      radial-gradient(1200px 500px at 10% -10%,rgba(34,211,238,.12),transparent),
+      radial-gradient(1200px 500px at 90% -10%,rgba(139,92,246,.12),transparent),
+      var(--bg);
+      color:var(--text)
+    }
+
+    /* View transitions (modern page feel) */
+    ::view-transition-old(root), ::view-transition-new(root){ animation: none; mix-blend-mode: normal; }
+
+    /* Scroll progress */
+    #scrollProgress{position:fixed;left:0;top:0;height:4px;width:0;background:linear-gradient(90deg,var(--brand),var(--brand2));z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+
+    .navbar{backdrop-filter:blur(12px);background:linear-gradient( to right, rgba(11,18,32,.75), rgba(11,18,32,.45) );border-bottom:1px solid rgba(255,255,255,.08)}
+    .navbar .nav-link{color:#fff;opacity:.9}
+    .navbar .nav-link.active,.navbar .nav-link:hover{color:var(--brand)}
+
+    .btn-glow{border:none;border-radius:999px;padding:.75rem 1.25rem;font-weight:600;background:linear-gradient(45deg,var(--brand),var(--brand2));color:#0b1220;box-shadow:0 0 0 rgba(34,211,238,0);transition:transform .25s ease, box-shadow .25s ease}
+    .btn-glow:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(34,211,238,.35)}
+    .btn-outline-soft{border:1px solid rgba(255,255,255,.18);color:var(--text)}
+    .btn-outline-soft:hover{background:rgba(255,255,255,.06)}
+
+    .tag{display:inline-block;border:1px solid rgba(255,255,255,.12);padding:.35rem .6rem;border-radius:999px;margin:.25rem;color:var(--muted);font-size:.85rem}
+    .section{padding:96px 0}
+    .heading span{background:linear-gradient(45deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .glass{background:linear-gradient( to bottom right, rgba(255,255,255,.06), rgba(255,255,255,.03) );border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);box-shadow:var(--shadow)}
+
+
+    .hero{min-height:100vh;display:grid;place-items:center;position:relative;overflow:hidden}
+    #particles{position:absolute;inset:0;z-index:0}
+    .hero .content{position:relative;z-index:1}
+    .avatar{width:120px;height:120px;border-radius:50%;border:3px solid rgba(255,255,255,.2);box-shadow:0 8px 30px rgba(0,0,0,.5);object-fit:cover}
+
+    .card-3d{transition:transform .3s ease, box-shadow .3s ease}
+    .card-3d:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,.55)}
+
+    .project-card{position:relative;overflow:hidden}
+    .project-card .overlay{position:absolute;inset:0;background:linear-gradient( to top, rgba(11,18,32,.95), rgba(11,18,32,.2) );opacity:0;transition:opacity .3s ease}
+    .project-card:hover .overlay{opacity:1}
+    .project-card img{width:100%;height:220px;object-fit:cover;filter:saturate(1.08) contrast(1.05)}
+
+    /* Skill rings */
+    .ring{--val:75;--clr:var(--accent);width:110px;height:110px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--clr) calc(var(--val)*1%), #233145 0);position:relative}
+    .ring::after{content:"";position:absolute;inset:8px;background:var(--bg-soft);border-radius:50%}
+    .ring span{position:relative;font-weight:700}
+    /* Skill Rings Base */
+.ring {
+  --size: 120px;
+  --bar: 10px;
+  --val: 0;
+  --clr: var(--accent);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: conic-gradient(var(--clr) calc(var(--val) * 1%), #2d2d2d 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: inset 0 0 20px rgba(255,255,255,0.05);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.ring::before {
+  content: '';
+  position: absolute;
+  inset: calc(var(--bar));
+  border-radius: 50%;
+  background: #111;
+}
+
+.ring span {
+  position: relative;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #fff;
+  z-index: 2;
+  transition: color .3s ease, text-shadow .3s ease;
+}
+
+/* Light white text for labels */
+.skills .col-4 small {
+  color: rgba(255,255,255,0.85) !important;
+  font-weight: 500;
+  transition: color .3s ease, text-shadow .3s ease;
+}
+
+/* Hover glow effects */
+.ring:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px var(--clr), 0 0 50px var(--clr);
+}
+
+.ring:hover span {
+  color: #fff;
+  text-shadow: 0 0 10px var(--clr), 0 0 20px var(--clr);
+}
+
+.skills .col-4:hover small {
+  color: #fff !important;
+  text-shadow: 0 0 8px var(--clr), 0 0 15px var(--clr);
+}
+
+
+    /* Timeline */
+    .timeline{position:relative;padding-left:32px}
+    .timeline::before{content:"";position:absolute;left:12px;top:0;bottom:0;width:3px;background:linear-gradient(var(--brand),var(--brand2))}
+    .timeline .tl-item{position:relative;margin-bottom:28px}
+    .timeline .tl-item::before{content:"";position:absolute;left:-3px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(34,211,238,.15)}
+
+    .contact .form-control{background:#0f1a31;border:1px solid rgba(255,255,255,.08);color:#e5e7eb}
+    .footer{border-top:1px solid rgba(255,255,255,.08)}
+
+    .marquee{display:flex;gap:36px;overflow:hidden}
+    .marquee > div{flex:0 0 auto;animation:scroll 20s linear infinite}
+    @keyframes scroll{ from{ transform:translateX(0)} to{ transform:translateX(-50%) }}
+
+    /* Back to top */
+    #backToTop{position:fixed;right:18px;bottom:18px;z-index:1200;opacity:0;visibility:hidden;transition:opacity .25s ease, visibility .25s ease}
+    #backToTop.show{opacity:1;visibility:visible}
+
+    /* Light theme */
+    .theme-light{--bg:#f8fafc;--bg-soft:#eef2ff;--card:#ffffffb3;--text:#0b1220;--muted:#334155}
+
+    /* Shimmer for lazy images */
+    .shimmer{position:relative;overflow:hidden;background:#1e293b}
+    .shimmer::after{content:"";position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);animation:shimmer 1.6s infinite}
+    @keyframes shimmer{100%{transform:translateX(100%)}}
+
+    /* Command palette */
+    .kbd{border:1px solid rgba(255,255,255,.2);border-bottom-width:2px;border-radius:6px;padding:1px 6px;font-size:.8rem;color:var(--muted)}
+
+    /* Magnetic buttons */
+    .magnetic{position:relative;overflow:hidden}
+    .magnetic span{position:relative;display:inline-block}
+
+    /* Sticky section headers effect */
+    .section .heading{position:sticky;top:72px;z-index:5;margin-bottom:28px}
+
+    /* Reduce motion preference */
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    }
+
+      .avatar {
+    width: 15vw;         /* 15% of viewport width */
+    height: 15vw;
+    max-width: 220px;    /* limit max size */
+    max-height: 220px;
+    border-radius: 50%;
+    border:3px solid rgba(255,255,255,.2);
+    box-shadow:0 8px 30px rgba(0,0,0,.5);
+    object-fit:cover;
+  }
+
+  .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+.form-control:focus {
+  color: #fff;
+  background-color: transparent;
+  border-color: var(--brand); /* optional accent color */
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+}
+
+.footer {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeInUp 1.2s ease;
+}
+
+.footer .gradient-text {
+  background: linear-gradient(90deg, var(--brand), var(--brand2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer .highlight {
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.footer-link:hover {
+  color: var(--brand);
+  transform: translateX(5px);
+}
+
+.social-link {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.85);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.social-link:hover {
+  transform: translateY(-5px) scale(1.2);
+  color: var(--brand);
+}
+
+/* Divider animation */
+.footer hr {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  width: 80%;
+  margin: auto;
+  animation: expandWidth 1.2s ease forwards;
+}
+
+@keyframes expandWidth {
+  from { width: 0; }
+  to { width: 80%; }
+}
+
+/* Footer entry animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Navbar brand hover glow */
+.navbar-brand:hover {
+  color: var(--brand) !important;
+  text-shadow: 0 0 8px var(--brand2), 0 0 15px var(--brand2);
+}
+
+/* Nav links animation */
+.navbar .nav-link {
+  color: #fff !important;
+  opacity: 0.9;
+  position: relative;
+  transition: color .3s ease, transform .3s ease;
+}
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand), var(--brand2));
+  transition: width .3s ease;
+}
+.navbar .nav-link:hover {
+  color: var(--brand) !important;
+  transform: translateY(-2px);
+}
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+  width: 60%;
+}
+
+/* Scroll shrink effect */
+.navbar.scrolled {
+  background: rgba(11,18,32,0.95) !important;
+  padding: 8px 0 !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,.4);
+}
+
+/* Smooth navbar toggle animation */
+.navbar-toggler i {
+  font-size: 1.3rem;
+  transition: transform .3s ease;
+}
+.navbar-toggler[aria-expanded="true"] i {
+  transform: rotate(90deg);
+  color: var(--brand);
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1100;
+
+  /* Glass effect */
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  /* Animated gradient with more vibrant darks */
+  background: linear-gradient(120deg,
+              rgba(17, 24, 39, 0.9),   /* deep slate */
+              rgba(29, 78, 216, 0.35), /* rich blue */
+              rgba(147, 51, 234, 0.35),/* purple */
+              rgba(17, 24, 39, 0.9));  /* back to slate */
+  background-size: 300% 300%;
+  animation: gradientShift 12s ease infinite;
+
+  transition: all 0.4s ease;
+}
+
+/* Solid glass background when scrolling */
+.navbar.scrolled {
+  background: linear-gradient(120deg,
+              rgba(15, 23, 42, 0.95),  /* slate */
+              rgba(29, 78, 216, 0.45), /* stronger blue */
+              rgba(147, 51, 234, 0.45),/* stronger purple */
+              rgba(15, 23, 42, 0.95));
+  background-size: 300% 300%;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.45);
+}
+
+/* Gradient animation */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#topnav" data-bs-offset="80" tabindex="0">
+
+  <div id="scrollProgress"></div>
+
+ 
+  <!-- NAVBAR -->
+<nav id="topnav" class="navbar navbar-expand-lg fixed-top shadow-sm" 
+     style="backdrop-filter: blur(14px); background: linear-gradient(90deg, rgba(11,18,32,0.9), rgba(11,18,32,0.6)); border-bottom:1px solid rgba(255,255,255,0.08); transition: all .4s ease;">
+  <div class="container">
+
+    <!-- Brand Logo -->
+    <a class="navbar-brand fw-bold text-white fs-4" href="#home" style="letter-spacing:1px; transition: color .3s ease;" aria-label="Go to homepage">
+      <span style="color:var(--brand)">M</span>N.
+    </a>
+
+    <!-- Right side buttons -->
+    <div class="d-flex align-items-center gap-2 order-lg-2">
+      <!-- Search / Command Palette -->
+      <button id="openCmd" class="btn btn-outline-soft btn-sm d-none d-md-inline-flex" 
+              title="Command palette (/)" aria-label="Open command palette"
+              style="border-radius:999px; transition:all .3s ease;">
+        <i class="fa-solid fa-magnifying-glass me-2"></i> Search <span class="ms-2 kbd">/</span>
+      </button>
+
+      <!-- Theme toggle -->
+      <button id="themeToggle" class="btn btn-sm btn-outline-info" aria-label="Toggle theme"
+              style="border-radius:50%; width:38px; height:38px; display:flex; align-items:center; justify-content:center;">
+        <i class="fa-solid fa-sun"></i>
+      </button>
+
+      <!-- Mobile menu button -->
+      <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse order-lg-1" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+        <li class="nav-item"><a class="nav-link px-3" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#experience">Experience</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#certs">Highlights</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#testimonials">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- HERO -->
+  <header id="home" class="hero section" aria-label="Hero">
+    <div id="particles" aria-hidden="true"></div>
+    <div class="content container text-center">
+      <img class="avatar mb-3" src="Noor image.jpg" alt="Portrait placeholder" loading="lazy"/>
+      <h1 class="display-5 fw-bold" data-aos="zoom-in">Hi, I'm <span class="text-info">Mohammad Noor</span></h1>
+      <p class="lead text-secondary mb-3" id="typedText" aria-live="polite">Full‑Stack Web Developer • Java & DSA </p>
+      <div class="d-flex justify-content-center gap-2 flex-wrap">
+        <a href="#projects" class="btn-glow magnetic"><span><i class="fa-solid fa-rocket me-2"></i>View Projects</span></a>
+        <a href="https://drive.google.com/file/d/1bHIyRrpefPJokzw_Q96zYzrkvneYog3v/view?usp=sharing" 
+          class="btn btn-outline-info rounded-pill magnetic" target="_blank">
+          <span><i class="fa-solid fa-file-arrow-down me-2"></i>Download Resume</span></a>
+        <a href="https://www.linkedin.com/in/mohammad-noor-514b84255/" target="_blank" rel="noopener" class="btn btn-outline-light rounded-pill magnetic"><span><i class="fa-brands fa-linkedin me-2"></i>LinkedIn</span></a>
+        <a href="https://github.com/MohammadNoor12345" target="_blank" rel="noopener" class="btn btn-outline-light rounded-pill magnetic"><span><i class="fa-brands fa-github me-2"></i>GitHub</span></a>
+      </div>
+
+      <div class="mt-4 marquee opacity-75" aria-hidden="true">
+        <div class="d-flex gap-4">
+          <span class="tag">MERN</span><span class="tag">Java</span><span class="tag">DSA</span><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">Bootstrap</span><span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Git</span>
+        </div>
+        <div class="d-flex gap-4">
+          <span class="tag">TypeScript</span><span class="tag">REST APIs</span><span class="tag">JWT</span><span class="tag">Tailwind</span><span class="tag">Vite</span><span class="tag">Redux</span><span class="tag">GSAP</span><span class="tag">AOS</span>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="container mt-5">
+        <div class="row g-3 justify-content-center">
+          <div class="col-6 col-md-3">
+            <div class="glass p-3 text-center card-3d" data-tilt>
+              <div class="h3 mb-0" data-counter="25">3</div>
+              <small class="text-secondary">Projects</small>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="glass p-3 text-center card-3d" data-tilt>
+              <div class="h3 mb-0" data-counter="12">3</div>
+              <small class="text-secondary">Certifications</small>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="glass p-3 text-center card-3d" data-tilt>
+              <div class="h3 mb-0" data-counter="8">1</div>
+              <small class="text-secondary">Hackathons</small>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="glass p-3 text-center card-3d" data-tilt>
+              <div class="h3 mb-0" data-counter="98">50</div>
+              <small class="text-secondary">LeetCode Streak</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="section" aria-label="About">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="p-4 glass card-3d" data-tilt>
+            <h2 class="heading">About <span>Me</span></h2>
+            <p class="text-secondary mb-2">I’m a 4th‑year B.Tech student in Computer Science & Engineering at Parala Maharaja Engineering College. I design and build scalable, secure and delightful web applications with a strong foundation in <b>MERN</b>, <b>Java</b> and <b>Data Structures & Algorithms</b>.</p>
+            <p class="text-secondary">I enjoy shipping real products: from an AI‑powered facial voting system to full‑stack management portals. I value clean code, accessibility, performance and great user experience.</p>
+            <div class="row text-center mt-3">
+              <div class="col-4">
+                <div class="ring mx-auto" style="--val:92; --clr: var(--ok)"><span>92%</span></div>
+                  <small class="d-block mt-2" style="color: #ffffff; font-weight:500;">Frontend</small>
+                </div>
+
+                <div class="col-4">
+                <div class="ring mx-auto" style="--val:86; --clr: var(--accent)"><span>86%</span></div>
+                  <small class="d-block mt-2" style="color: #ffffff; font-weight:500;">Backend</small>
+                </div>
+
+                    <div class="col-4">
+                      <div class="ring mx-auto" style="--val:80; --clr: var(--warn)"><span>80%</span></div>
+                      <small class="d-block mt-2" style="color: #ffffff; font-weight:500;">DSA</small>
+                    </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="p-4 glass card-3d h-100" data-tilt>
+            <h3 class="mb-3">What I bring</h3>
+            <ul class="mb-3">
+              <li class="mb-2">Full‑stack development with <b>React</b>, <b>Node.js</b>, <b>Express</b>, <b>MongoDB/MySQL</b>.</li>
+              <li class="mb-2">Strong in <b>Java</b>, <b>DSA</b>, problem solving and clean architecture.</li>
+              <li class="mb-2">Focus on <b>performance</b>, <b>security</b>, and <b>accessibility</b>.</li>
+              <li class="mb-2">Hands‑on with <b>OpenCV</b> & classical ML (KNN).</li>
+              <li class="mb-2">Collaborative, communicative, and user‑centric mindset.</li>
+            </ul>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="#contact" class="btn-glow magnetic"><span><i class="fa-solid fa-handshake me-2"></i>Hire Me</span></a>
+              <a href="#projects" class="btn btn-outline-soft magnetic"><span><i class="fa-solid fa-code me-2"></i>See Code</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section" style="background:var(--bg-soft)" aria-label="Skills">
+    <div class="container">
+      <h2 class="heading text-center mb-5">Technical <span>Skills</span></h2>
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="zoom-in">
+          <div class="p-4 glass card-3d" data-tilt>
+            <h5 class="mb-3">Programming</h5>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="tag">Java</span><span class="tag">C</span><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">SQL</span>
+            </div>
+            <hr class="border-secondary border-opacity-25"/>
+            <h5 class="mb-3">Web / Frameworks</h5>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Bootstrap</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PHP</span><span class="tag">JWT</span><span class="tag">Redux</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="zoom-in">
+          <div class="p-4 glass card-3d" data-tilt>
+            <h5 class="mb-3">Databases & Tools</h5>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="tag">MongoDB</span><span class="tag">MySQL</span><span class="tag">Git</span><span class="tag">VS Code</span><span class="tag">API Integration</span><span class="tag">Docker</span><span class="tag">Vite</span>
+            </div>
+            <hr class="border-secondary border-opacity-25"/>
+            <h5 class="mb-3">Soft Skills</h5>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="tag">Communication</span><span class="tag">Logical Thinking</span><span class="tag">Adaptability</span><span class="tag">Leadership</span><span class="tag">Project Management</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section" aria-label="Projects">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
+        <h2 class="heading m-0">Selected <span>Projects</span></h2>
+        <div class="d-flex gap-2 align-items-center">
+          <div class="btn-group me-2" role="group" aria-label="Filter projects">
+            <button class="btn btn-outline-info btn-sm rounded-pill px-3 active" data-filter="all">All</button>
+            <button class="btn btn-outline-info btn-sm rounded-pill px-3" data-filter="ai">AI</button>
+            <button class="btn btn-outline-info btn-sm rounded-pill px-3" data-filter="web">Web</button>
+            <button class="btn btn-outline-info btn-sm rounded-pill px-3" data-filter="ml">ML</button>
+          </div>
+          <div class="input-group input-group-sm" style="width:220px">
+            <span class="input-group-text bg-transparent text-secondary"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input id="projectSearch" class="form-control" placeholder="Search projects..." aria-label="Search projects">
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4" id="projectGrid">
+        <!-- Voting System -->
+        <div class="col-md-6 col-lg-4 project-card card-3d" data-tags="ai web" data-title="Next‑Gen Electoral Voting AI Facial ID">
+          <div class="glass h-100" data-tilt>
+            <div class="shimmer">
+              <img src="Voting.avif" alt="Voting" loading="lazy"/>
+            </div>
+            <div class="p-3 overlay d-flex flex-column justify-content-end">
+              <h5 class="mb-1">Next‑Gen Electoral Voting (AI Facial ID)</h5>
+              <p class="text-secondary small mb-2">Python • OpenCV • KNN • Scikit‑learn • CSV (Encrypted)</p>
+              <div class="d-flex flex-wrap gap-2 mb-2">
+                <span class="tag">90%+ accuracy</span><span class="tag">Fraud ‑95%</span><span class="tag">Real‑time</span>
+              </div>
+              <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-glow magnetic" data-bs-toggle="modal" data-bs-target="#projVoting"><span>Details</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Hospital -->
+        <div class="col-md-6 col-lg-4 project-card card-3d" data-tags="web" data-title="Hospital Management System">
+          <div class="glass h-100" data-tilt>
+            <div class="shimmer">
+              <img src="Hospital.avif" alt="Hospital" loading="lazy"/>
+            </div>
+            <div class="p-3 overlay d-flex flex-column justify-content-end">
+              <h5 class="mb-1">Hospital Management System</h5>
+              <p class="text-secondary small mb-2">HTML • CSS • JS • PHP • MySQL</p>
+              <div class="d-flex flex-wrap gap-2 mb-2">
+                <span class="tag">100+ records</span><span class="tag">Secure Admin</span><span class="tag">Workflow +40%</span>
+              </div>
+              <div class="d-flex gap-2"><button class="btn btn-sm btn-glow magnetic" data-bs-toggle="modal" data-bs-target="#projHms"><span>Details</span></button></div>
+            </div>
+          </div>
+        </div>
+        <!-- Library -->
+        <div class="col-md-6 col-lg-4 project-card card-3d" data-tags="web" data-title="Library Management System">
+          <div class="glass h-100" data-tilt>
+            <div class="shimmer">
+              <img src="Library.avif" alt="Library" loading="lazy"/>
+            </div>
+            <div class="p-3 overlay d-flex flex-column justify-content-end">
+              <h5 class="mb-1">Library Management System</h5>
+              <p class="text-secondary small mb-2">HTML • CSS • JS • Bootstrap</p>
+              <div class="d-flex flex-wrap gap-2 mb-2">
+                <span class="tag">Responsive</span><span class="tag">Search</span><span class="tag">Cart</span><span class="tag">Engagement +60%</span>
+              </div>
+              <div class="d-flex gap-2"><button class="btn btn-sm btn-glow magnetic" data-bs-toggle="modal" data-bs-target="#projLms"><span>Details</span></button></div>
+            </div>
+          </div>
+        </div>
+        <!-- DSA Visualizer -->
+        <div class="col-md-6 col-lg-4 project-card card-3d" data-tags="web" data-title="DSA Visualizer">
+          <div class="glass h-100" data-tilt>
+            <div class="shimmer">
+              <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1400&auto=format&fit=crop" alt="DSA" loading="lazy"/>
+            </div>
+            <div class="p-3 overlay d-flex flex-column justify-content-end">
+              <h5 class="mb-1">DSA Visualizer</h5>
+              <p class="text-secondary small mb-2">React • Algorithms • Animations</p>
+              <div class="d-flex flex-wrap gap-2 mb-2">
+                <span class="tag">Sorting</span><span class="tag">Graphs</span><span class="tag">Pathfinding</span>
+              </div>
+              <div class="d-flex gap-2"><button class="btn btn-sm btn-glow magnetic" data-bs-toggle="modal" data-bs-target="#projDsa"><span>Details</span></button></div>
+            </div>
+          </div>
+        </div>
+        <!-- Portfolio v3 -->
+        <div class="col-md-6 col-lg-4 project-card card-3d" data-tags="web" data-title="Portfolio v3">
+          <div class="glass h-100" data-tilt>
+            <div class="shimmer">
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1400&auto=format&fit=crop" alt="Portfolio" loading="lazy"/>
+            </div>
+            <div class="p-3 overlay d-flex flex-column justify-content-end">
+              <h5 class="mb-1">Portfolio v3</h5>
+              <p class="text-secondary small mb-2">Bootstrap • GSAP • AOS</p>
+              <div class="d-flex flex-wrap gap-2 mb-2">
+                <span class="tag">Dark/Light</span><span class="tag">Accessible</span><span class="tag">Fast</span>
+              </div>
+              <div class="d-flex gap-2"><button class="btn btn-sm btn-glow magnetic" data-bs-toggle="modal" data-bs-target="#projP3"><span>Details</span></button></div>
+            </div>
+          </div>
+        </div>
+        <!-- REST API Starter -->
+        <div class="col-md-6 col-lg-4 project-card card-3d" data-tags="web ml" data-title="REST API Starter">
+          <div class="glass h-100" data-tilt>
+            <div class="shimmer">
+              <img src="https://images.unsplash.com/photo-1558494947-0e7ab1f2e8d7?q=80&w=1400&auto=format&fit=crop" alt="API" loading="lazy"/>
+            </div>
+            <div class="p-3 overlay d-flex flex-column justify-content-end">
+              <h5 class="mb-1">REST API Starter</h5>
+              <p class="text-secondary small mb-2">Node • Express • JWT • Swagger</p>
+              <div class="d-flex flex-wrap gap-2 mb-2">
+                <span class="tag">Auth</span><span class="tag">Docs</span><span class="tag">Testing</span>
+              </div>
+              <div class="d-flex gap-2"><button class="btn btn-sm btn-glow magnetic" data-bs-toggle="modal" data-bs-target="#projApi"><span>Details</span></button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="glass p-4 mt-4 card-3d d-flex flex-column flex-md-row align-items-center justify-content-between" data-tilt>
+        <div class="mb-3 mb-md-0">
+          <h5 class="mb-1">Want the full case studies?</h5>
+          <small class="text-secondary">Detailed write‑ups with code snippets, trade‑offs and results.</small>
+        </div>
+        <a href="#contact" class="btn-glow magnetic"><span><i class="fa-solid fa-comment-dots me-2"></i>Request Case Studies</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section" style="background:var(--bg-soft)" aria-label="Services">
+    <div class="container">
+      <h2 class="heading text-center mb-5">What I <span>Do</span></h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="glass p-4 h-100 card-3d" data-tilt>
+            <i class="fa-solid fa-laptop-code fa-2x mb-3 text-info"></i>
+            <h5 class="mb-2">Full‑Stack Apps</h5>
+            <p class="text-secondary">Design and build end‑to‑end web apps with authentication, dashboards, and REST APIs.</p>
+            <div class="d-flex flex-wrap gap-2"><span class="tag">React</span><span class="tag">Node</span><span class="tag">MongoDB</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass p-4 h-100 card-3d" data-tilt>
+            <i class="fa-solid fa-gauge-high fa-2x mb-3 text-info"></i>
+            <h5 class="mb-2">Performance & UX</h5>
+            <p class="text-secondary">Optimize Core Web Vitals, accessibility, and responsive UI for great user experience.</p>
+            <div class="d-flex flex-wrap gap-2"><span class="tag">Lighthouse 90+</span><span class="tag">WCAG</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="glass p-4 h-100 card-3d" data-tilt>
+            <i class="fa-solid fa-robot fa-2x mb-3 text-info"></i>
+            <h5 class="mb-2">AI‑Powered Features</h5>
+            <p class="text-secondary">Add CV/ML features like face recognition, search, and recommendations.</p>
+            <div class="d-flex flex-wrap gap-2"><span class="tag">OpenCV</span><span class="tag">scikit‑learn</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section" aria-label="Experience">
+    <div class="container">
+      <h2 class="heading text-center mb-5">Experience & <span>Roles</span></h2>
+      <div class="row g-4">
+        <div class="col-lg-8 mx-auto">
+          <div class="timeline">
+            <div class="tl-item glass p-4" data-aos="fade-up" data-tilt>
+              <h5 class="mb-1">Web Development Intern — PMEC Berhampur</h5>
+              <small class="text-secondary">Jan – Mar 2024</small>
+              <p class="mb-2">Built interactive components and pages using modern web tech; collaborated with faculty teams to ship features with attention to UI/UX and performance.</p>
+              <div class="d-flex flex-wrap gap-2"><span class="tag">Bootstrap</span><span class="tag">JavaScript</span><span class="tag">UI/UX</span></div>
+            </div>
+            <div class="tl-item glass p-4" data-aos="fade-up" data-aos-delay="100" data-tilt>
+              <h5 class="mb-1">Full Stack Web Development — PW Skills</h5>
+              <small class="text-secondary">Jun 2025</small>
+              <p class="mb-2">6‑month MERN certification with responsive, end‑to‑end apps—API design, authentication, state management and deployment workflows.</p>
+              <div class="d-flex flex-wrap gap-2"><span class="tag">MERN</span><span class="tag">REST APIs</span><span class="tag">Auth</span></div>
+            </div>
+            <div class="tl-item glass p-4" data-aos="fade-up" data-aos-delay="200" data-tilt>
+              <h5 class="mb-1">AI Tools Workshop — be10X</h5>
+              <small class="text-secondary">Nov 2023</small>
+              <p class="mb-2">Explored 20+ AI tools (ChatGPT, Notion AI, Canva AI, Gamma AI) to enhance productivity and automate workflows.</p>
+              <div class="d-flex flex-wrap gap-2"><span class="tag">Automation</span><span class="tag">Prompting</span><span class="tag">Productivity</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- EDUCATION -->
+<section id="education" class="section" aria-label="Education">
+  <div class="container">
+    <h2 class="heading text-center mb-5">Education</h2>
+    <div class="row g-4 justify-content-center">
+
+      <!-- B.Tech -->
+      <div class="col-md-10">
+        <div class="glass p-4 card-3d" data-aos="zoom-in" data-tilt>
+          <h5 class="mb-1">B.Tech in Computer Science & Engineering</h5>
+          <small class="text-secondary">Parala Maharaja Engineering College — 2022–2026</small>
+          <div class="mt-2">
+            <span class="tag">CSE</span>
+            <span class="tag">Projects-Driven</span>
+            <span class="tag">Leadership</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Higher Secondary -->
+      <div class="col-md-5">
+        <div class="glass p-4 card-3d" data-aos="zoom-in" data-tilt>
+          <h5 class="mb-1">Higher Secondary (I.C.S.E.)</h5>
+          <small class="text-secondary">Chinmaya Vidyalaya (E.M.), Rourkela — 2018–2020</small>
+        </div>
+      </div>
+
+      <!-- Matriculation -->
+      <div class="col-md-5">
+        <div class="glass p-4 card-3d" data-aos="zoom-in" data-tilt>
+          <h5 class="mb-1">Matriculation (I.C.S.E.)</h5>
+          <small class="text-secondary">Pragati Public School (F.T.), Rourkela — 2018</small>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- CERTIFICATIONS / HIGHLIGHTS -->
+<section id="certs" class="section" style="background:var(--bg-soft)" aria-label="Highlights">
+  <div class="container">
+    <h2 class="heading text-center mb-5">Certifications & <span>Highlights</span></h2>
+    <div class="row g-4">
+
+      <!-- Full Stack Web Development -->
+      <div class="col-md-4" data-aos="flip-left">
+        <div class="glass p-4 text-center card-3d" data-tilt>
+          <i class="fa-solid fa-certificate fa-2x mb-3 text-info"></i>
+          <h6 class="mb-1">Full-Stack Web Development</h6>
+          <small class="text-secondary">PW Skills • Jun 2025</small>
+          <div class="mt-2 small text-secondary">
+            6-month program: HTML/CSS/JS & MERN (MongoDB, Express, React, Node)
+          </div>
+          <a href="https://drive.google.com/file/d/1czrA8-8KScKlS2h7xN1UF6DBao_03NYc/view?usp=sharing"
+             target="_blank"
+             class="btn btn-outline-info btn-sm rounded-pill mt-3">
+            <i class="fa-solid fa-file-certificate me-2"></i>View Certificate
+          </a>
+        </div>
+      </div>
+
+      <!-- Web Development Intern -->
+      <div class="col-md-4" data-aos="flip-left" data-aos-delay="100">
+        <div class="glass p-4 text-center card-3d" data-tilt>
+          <i class="fa-solid fa-briefcase fa-2x mb-3 text-info"></i>
+          <h6 class="mb-1">Web Dev Intern</h6>
+          <small class="text-secondary">PMEC Berhampur • Jan–Mar 2024</small>
+          <div class="mt-2 small text-secondary">
+            Improved UI/UX with interactive components
+          </div>
+          <a href="https://drive.google.com/file/d/1tRkkFXY3ChFRO1kGRp7e81qxTWdq3aVk/view?usp=sharing"
+             target="_blank"
+             class="btn btn-outline-info btn-sm rounded-pill mt-3">
+            <i class="fa-solid fa-file-certificate me-2"></i>View Certificate
+          </a>
+        </div>
+      </div>
+
+      <!-- AI Tools Workshop -->
+      <div class="col-md-4" data-aos="flip-left" data-aos-delay="200">
+        <div class="glass p-4 text-center card-3d" data-tilt>
+          <i class="fa-solid fa-robot fa-2x mb-3 text-info"></i>
+          <h6 class="mb-1">AI Tools Workshop</h6>
+          <small class="text-secondary">be10X • Nov 2023</small>
+          <div class="mt-2 small text-secondary">
+            Explored 20+ tools: ChatGPT, Notion AI, Canva AI, Gamma AI
+          </div>
+          <a href="https://drive.google.com/file/d/1vW6MflwcwB8Xv14zbZUhbAloxMfbWAei/view?usp=sharing"
+             target="_blank"
+             class="btn btn-outline-info btn-sm rounded-pill mt-3">
+            <i class="fa-solid fa-file-certificate me-2"></i>View Certificate
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+  <!-- FAQ -->
+  <section id="faq" class="section" style="background:var(--bg-soft)" aria-label="FAQ">
+    <div class="container">
+      <h2 class="heading text-center mb-4">Frequently Asked <span>Questions</span></h2>
+      <div class="accordion glass" id="faqAcc" data-tilt>
+        <div class="accordion-item bg-transparent text-light">
+          <h2 class="accordion-header" id="q1">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1">Do you take freelance work?</button>
+          </h2>
+          <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc">
+            <div class="accordion-body text-secondary">Yes — I’m available for short‑term and part‑time freelance projects. Send details via the contact form.</div>
+          </div>
+        </div>
+        <div class="accordion-item bg-transparent text-light">
+          <h2 class="accordion-header" id="q2">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2">What tech do you prefer?</button>
+          </h2>
+          <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+            <div class="accordion-body text-secondary">MERN stack for most apps, with Bootstrap or Tailwind for UI. I use JWT for auth and focus on clean API contracts.</div>
+          </div>
+        </div>
+        <div class="accordion-item bg-transparent text-light">
+          <h2 class="accordion-header" id="q3">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3">How fast can you start?</button>
+          </h2>
+          <div id="a3" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+            <div class="accordion-body text-secondary">I can typically begin within a week, depending on scope and current commitments.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact" aria-label="Contact">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="glass p-4 h-100 card-3d" data-tilt>
+            <h2 class="heading">Let’s <span>Connect</span></h2>
+            <p class="text-secondary">Open to full‑time roles, internships and freelance. I usually respond within 24 hours.</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="text-decoration-none text-light" href="mailto:mohammadnoor76354@gmail.com"><i class="fa-solid fa-envelope me-2 text-info"></i> mohammadnoor76354@gmail.com</a>
+              <a class="text-decoration-none text-light" href="tel:+919938892084"><i class="fa-solid fa-phone me-2 text-info"></i> +91 99388 92084</a>
+              <a class="text-decoration-none text-light" href="https://goo.gl/maps/BqwQe2o8zE7H8o2H9" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot me-2 text-info"></i> Rourkela, Odisha</a>
+              <div class="d-flex gap-2 mt-2">
+                <a class="btn btn-outline-info rounded-pill magnetic" target="_blank" rel="noopener" href="https://www.linkedin.com/in/mohammad-noor-514b84255/"><span><i class="fa-brands fa-linkedin me-2"></i>LinkedIn</span></a>
+                <a class="btn btn-outline-light rounded-pill magnetic" target="_blank" rel="noopener" href="https://github.com/MohammadNoor12345"><span><i class="fa-brands fa-github me-2"></i>GitHub</span></a>
+              </div>
+              <div class="mt-3 small text-secondary">Prefer email? I can also integrate this form with EmailJS/Netlify on request.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="glass p-4 h-100 card-3d" data-tilt>
+            <form id="contactForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+  <input name="name" class="form-control form-control-lg text-white bg-transparent border-light" placeholder="Your Name" required>
+</div>
+<div class="col-md-6">
+  <input name="email" type="email" class="form-control form-control-lg text-white bg-transparent border-light" placeholder="Your Email" required>
+</div>
+<div class="col-12">
+  <input name="subject" class="form-control form-control-lg text-white bg-transparent border-light" placeholder="Subject" required>
+</div>
+<div class="col-12">
+  <textarea name="message" class="form-control text-white bg-transparent border-light" rows="5" placeholder="Message" required></textarea>
+</div>
+<div class="col-12 d-flex gap-2 align-items-center">
+  <button class="btn-glow magnetic" type="submit"><span>Send Message</span></button>
+</div>
+
+                  <span id="formSpinner" class="spinner-border spinner-border-sm text-info d-none" role="status" aria-hidden="true"></span>
+                </div>
+                <div class="col-12"><div id="formMsg" class="small"></div></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer py-4 text-center text-secondary">
+    <div class="container">© <span id="year"></span> Mohammad Noor • Built with Bootstrap, AOS, GSAP, Swiper, Lenis & VanillaTilt</div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="backToTop" class="btn btn-glow rounded-circle" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Command Palette Modal -->
+  <div class="modal fade" id="cmdModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-light glass">
+        <div class="modal-header border-secondary">
+          <h5 class="modal-title"><i class="fa-solid fa-magnifying-glass me-2"></i>Command Palette</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input id="cmdInput" class="form-control form-control-lg" placeholder="Type: projects, skills, contact, theme..."/>
+          <div class="small text-secondary mt-2">Tips: <span class="kbd">/</span> to open • <span class="kbd">g</span><span class="ms-1"> then </span><span class="kbd">p</span> for Projects</div>
+          <ul id="cmdResults" class="list-group mt-3"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODALS: Project Details -->
+  <div class="modal fade" id="projVoting" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content bg-dark text-light">
+      <div class="modal-header border-secondary"><h5 class="modal-title">Next‑Gen Electoral Voting (AI Facial Identification)</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <div class="modal-body">
+        <p>Built a real‑time facial recognition voting system using OpenCV and KNN achieving <b>90%+ accuracy</b>. Votes are secured via encrypted CSV logs to ensure integrity and traceability, reducing potential fraud by <b>95%</b>. Designed with modular pipelines for detection, encoding, classification and audit logging.</p>
+        <ul>
+          <li>Tech: Python, OpenCV, scikit‑learn (KNN), CSV (encrypted)</li>
+          <li>Features: Real‑time verification, duplicate‑vote prevention, audit trail</li>
+          <li>Impact: Faster validation and improved election security</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+  <div class="modal fade" id="projHms" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content bg-dark text-light">
+      <div class="modal-header border-secondary"><h5 class="modal-title">Hospital Management System</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <p>Developed a full‑stack portal to manage patients, appointments and doctors. Implemented secure admin login, role‑based access, and dynamic CRUD with MySQL, improving workflow efficiency by <b>40%</b>.</p>
+        <ul>
+          <li>Tech: HTML, CSS, JavaScript, PHP, MySQL</li>
+          <li>Features: Appointments, schedules, authentication, responsive UI</li>
+          <li>Impact: Centralized records, reduced manual errors</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+  <div class="modal fade" id="projLms" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content bg-dark text-light">
+      <div class="modal-header border-secondary"><h5 class="modal-title">Library Management System</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <p>Responsive library system with login, search and cart features to streamline discovery and borrowing. Enhanced UI with Bootstrap and custom interactions leading to <b>+60%</b> engagement.</p>
+        <ul>
+          <li>Tech: HTML, CSS, JavaScript, Bootstrap</li>
+          <li>Features: Search, wishlist/cart, session‑based auth (demo)</li>
+          <li>Impact: Faster book discovery, improved UX across devices</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+  <div class="modal fade" id="projDsa" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content bg-dark text-light">
+      <div class="modal-header border-secondary"><h5 class="modal-title">DSA Visualizer</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <p>Interactive visualizations for sorting, graph traversals and pathfinding. Built to aid learning with step‑by‑step animations.</p>
+        <ul>
+          <li>Tech: React, Canvas, GSAP</li>
+          <li>Features: Adjustable speed, data sets, and algorithm comparisons</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+  <div class="modal fade" id="projP3" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content bg-dark text-light">
+      <div class="modal-header border-secondary"><h5 class="modal-title">Portfolio v3</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <p>New iteration of my portfolio with stronger contrast, motion enhancements and accessibility improvements.</p>
+        <ul>
+          <li>Tech: Bootstrap 5, GSAP, AOS, Swiper</li>
+          <li>Features: Command palette, theme memory, scroll progress and more</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+  <div class="modal fade" id="projApi" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content bg-dark text-light">
+      <div class="modal-header border-secondary"><h5 class="modal-title">REST API Starter</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <p>Production‑ready boilerplate for Express APIs with authentication, request validation and Swagger docs.</p>
+        <ul>
+          <li>Tech: Node.js, Express, JWT, Joi, Swagger</li>
+          <li>Features: Auth, roles, rate limiting, structured logs</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <script>
+    // Respect prefers-color-scheme on first load
+    (function(){
+      const saved = localStorage.getItem('theme');
+      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      if(saved==='light' || (!saved && prefersLight)) document.body.classList.add('theme-light');
+      if(document.startViewTransition){ document.documentElement.style.viewTransitionName = 'root'; }
+    })();
+
+    // AOS
+    AOS.init({ duration: 900, once: true, offset: 80 });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle with memory + view transition
+    const toggle = document.getElementById('themeToggle');
+    const setToggleIcon = () => { toggle.innerHTML = document.body.classList.contains('theme-light') ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>'; };
+    setToggleIcon();
+    toggle.addEventListener('click', ()=>{
+      const flip = ()=>{ document.body.classList.toggle('theme-light'); localStorage.setItem('theme', document.body.classList.contains('theme-light')? 'light' : 'dark'); setToggleIcon(); };
+      if(document.startViewTransition){ document.startViewTransition(flip);} else { flip(); }
+    });
+
+    // Lenis Smooth Scroll
+    const lenis = new Lenis({ smoothWheel: true, wheelMultiplier: 0.9 });
+    function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+
+    // Typed text
+    const phrases = ['Full‑Stack Web Developer','Java & DSA Enthusiast','Problem Solver','Open to Opportunities'];
+    let p=0,c=0,deleting=false; const typed = document.getElementById('typedText');
+    function type(){ const full = phrases[p]; typed.textContent = full.substring(0,c) + (c%2===0?'|':''); if(!deleting && c<full.length){c++;} else if(deleting && c>0){c--;} else { deleting=!deleting; if(!deleting){p=(p+1)%phrases.length;} } setTimeout(type, deleting?50:90);} type();
+
+    // Particles
+    tsParticles.load('particles', {
+      background: { color:'transparent' }, fullScreen:{ enable:false }, fpsLimit:60,
+      particles:{ number:{ value:70 }, color:{ value:['#22d3ee','#8b5cf6','#38bdf8'] }, links:{ enable:true, color:'#1f3b63', opacity:.35 }, move:{ enable:true, speed:1.2 }, opacity:{ value:.5 }, size:{ value:{min:1,max:3} } },
+      interactivity:{ events:{ onHover:{ enable:true, mode:'repulse' }, onClick:{ enable:true, mode:'push' } }, modes:{ repulse:{ distance: 120 }, push:{ quantity: 3 } } }
+    });
+
+    // Swiper (Testimonials)
+    new Swiper('.swiper', { loop:true, autoplay:{ delay:3000 }, pagination:{ el:'.swiper-pagination', clickable:true } });
+
+    // Scroll progress
+    const prog = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', ()=>{ const h = document.documentElement; const sc = h.scrollTop; const max = h.scrollHeight - h.clientHeight; prog.style.width = (sc/max*100) + '%'; });
+
+    // Back to top
+    const btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', ()=>{ btt.classList.toggle('show', window.scrollY>600);});
+    btt.addEventListener('click', ()=> window.scrollTo({ top:0, behavior:'smooth' }));
+
+    // Counters
+    document.querySelectorAll('[data-counter]').forEach(el=>{
+      const target = +el.dataset.counter; let cur=0; const step = Math.max(1, Math.floor(target/60));
+      const obs = new IntersectionObserver(([e],o)=>{ if(e.isIntersecting){ const i=setInterval(()=>{ cur+=step; if(cur>=target){ cur=target; clearInterval(i); } el.textContent=cur; },16); o.disconnect(); } });
+      obs.observe(el);
+    });
+
+    // Skill rings animate value
+    document.querySelectorAll('.ring').forEach(r=>{
+      const val = getComputedStyle(r).getPropertyValue('--val');
+      r.style.setProperty('--val', 0);
+      const target = +val.replace('%','');
+      const span = r.querySelector('span');
+      const obs = new IntersectionObserver(([e],o)=>{ if(e.isIntersecting){ let v=0; const i=setInterval(()=>{ v+=2; r.style.setProperty('--val', v); span.textContent = v+'%'; if(v>=target){ r.style.setProperty('--val', target); span.textContent = target+'%'; clearInterval(i); } }, 20); o.disconnect(); }});
+      obs.observe(r);
+    });
+
+    // VanillaTilt for cards
+    VanillaTilt.init(document.querySelectorAll('[data-tilt]'), { max:8, speed:500, glare:true, 'max-glare':0.15 });
+
+    // Magnetic buttons
+    document.querySelectorAll('.magnetic').forEach(btn=>{
+      const span = btn.querySelector('span');
+      btn.addEventListener('mousemove', (e)=>{ const r = btn.getBoundingClientRect(); const x = e.clientX - r.left - r.width/2; const y = e.clientY - r.top - r.height/2; span.style.transform = `translate(${x*0.15}px, ${y*0.3}px)`; });
+      btn.addEventListener('mouseleave', ()=>{ span.style.transform='translate(0,0)'; });
+    });
+
+    // Command palette
+    const cmdModal = new bootstrap.Modal('#cmdModal');
+    const cmdInput = document.getElementById('cmdInput');
+    const cmdResults = document.getElementById('cmdResults');
+    const openCmd = document.getElementById('openCmd');
+    const commands = [
+      {k:'projects', a:()=>location.hash='#projects'},
+      {k:'skills', a:()=>location.hash='#skills'},
+      {k:'contact', a:()=>location.hash='#contact'},
+      {k:'theme', a:()=>document.getElementById('themeToggle').click()},
+      {k:'top', a:()=>window.scrollTo({top:0,behavior:'smooth'})}
+    ];
+    function showCmd(){ cmdModal.show(); setTimeout(()=>cmdInput.focus(), 200); cmdInput.value=''; renderCmd(''); }
+    function renderCmd(q){ cmdResults.innerHTML=''; const ql=q.toLowerCase(); commands.filter(c=>c.k.includes(ql)).forEach(c=>{ const li=document.createElement('li'); li.className='list-group-item bg-transparent text-light'; li.textContent=c.k; li.onclick=()=>{ cmdModal.hide(); c.a(); }; cmdResults.appendChild(li);}); }
+    openCmd.addEventListener('click', showCmd);
+    cmdInput.addEventListener('input', e=>renderCmd(e.target.value));
+    window.addEventListener('keydown', (e)=>{ if(e.key==='/' && !e.target.matches('input,textarea')){ e.preventDefault(); showCmd(); } if(e.key==='g'){ const onKey=(ev)=>{ if(ev.key==='p'){ location.hash='#projects'; window.removeEventListener('keydown', onKey, true);} }; window.addEventListener('keydown', onKey, true); }});
+
+    // Project filter & search
+    const grid = document.getElementById('projectGrid');
+    const filterBtns = document.querySelectorAll('[data-filter]');
+    const searchInput = document.getElementById('projectSearch');
+    let filter='all', query='';
+    function applyFilter(){
+      const cards = grid.querySelectorAll('.project-card');
+      cards.forEach(card=>{
+        const tags = (card.getAttribute('data-tags')||'').split(' ');
+        const title = (card.getAttribute('data-title')||'').toLowerCase();
+        const matchesFilter = filter==='all' || tags.includes(filter);
+        const matchesQuery = !query || title.includes(query);
+        card.style.display = (matchesFilter && matchesQuery) ? '' : 'none';
+      });
+    }
+    filterBtns.forEach(b=> b.addEventListener('click', ()=>{ filterBtns.forEach(x=>x.classList.remove('active')); b.classList.add('active'); filter=b.dataset.filter; applyFilter(); }));
+    searchInput.addEventListener('input', e=>{ query=e.target.value.toLowerCase().trim(); applyFilter(); });
+
+    // Contact form (demo)
+    const form = document.getElementById('contactForm'); const spinner = document.getElementById('formSpinner'); const msg = document.getElementById('formMsg');
+    form.addEventListener('submit', (e)=>{ e.preventDefault(); spinner.classList.remove('d-none'); msg.textContent=''; setTimeout(()=>{ spinner.classList.add('d-none'); msg.className='small text-success'; msg.textContent='Thanks! Your message has been queued.'; form.reset(); }, 1000); });
+
+    // Bootstrap ScrollSpy refresh (after Lenis layout)
+    setTimeout(()=>{ const dataSpyList = [].slice.call(document.querySelectorAll('[data-bs-spy="scroll"]'))
+      dataSpyList.forEach(el=> bootstrap.ScrollSpy.getInstance(el) || new bootstrap.ScrollSpy(el, { target: '#topnav', offset: 80 })); }, 600);
+
+
+  // Navbar scroll effect
+const nav = document.getElementById("topnav");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    nav.classList.add("scrolled");
+  } else {
+    nav.classList.remove("scrolled");
+  }
+});
+    
+  </script>
+</body>
+</html>
+
+<!-- Back to top -->
+  <button id="backToTop" class="btn btn-glow rounded-circle" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Command Palette Modal -->
+  <div class="modal fade" id="cmdModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header border-0">
+          <h5 class="modal-title">Command Palette</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input id="cmdInput" type="text" class="form-control bg-secondary text-light mb-2" placeholder="Type a command...">
+          <ul id="cmdResults" class="list-group"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container" data-aos="fade-up">
+      <h2 class="text-center mb-4">Contact Me</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <form id="contactForm" class="card card-glass p-4">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" rows="4" required></textarea>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <button type="submit" class="btn btn-glow magnetic"><span>Send</span></button>
+              <div id="formSpinner" class="spinner-border text-info d-none" role="status"></div>
+            </div>
+            <p id="formMsg" class="mt-2 small"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Footer --> 
+<footer style="background-color:#111; color:#fff; padding:30px 0; text-align:center; position:relative;">
+  <div class="container">
+
+    <!-- Top Section -->
+    <div class="row g-3 text-center text-md-start" style="margin-bottom:20px;">
+
+      <!-- Brand / About -->
+      <div class="col-md-4">
+        <h4 style="font-weight:bold; margin-bottom:10px; color:#fff;">Mohammad Noor</h4>
+        <p style="font-size:14px; color:#ddd; margin:0;">
+          B.Tech CSE | Full-Stack Developer <br>
+          Passionate about creating <span style="color:#0ef; font-weight:600;">modern, interactive</span> web solutions.
+        </p>
+      </div>
+
+       <!-- Quick Links -->
+      <div class="col-md-4">
+        <h6 class="fw-semibold mb-3">Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li><a href="#about" class="footer-link"><i class="fa-solid fa-user me-2"></i>About Me</a></li>
+          <li><a href="#projects" class="footer-link"><i class="fa-solid fa-code me-2"></i>Projects</a></li>
+          <li><a href="#skills" class="footer-link"><i class="fa-solid fa-gears me-2"></i>Skills</a></li>
+          <li><a href="#contact" class="footer-link"><i class="fa-solid fa-envelope me-2"></i>Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Social -->
+      <div class="col-md-4">
+        <h6 style="font-weight:600; margin-bottom:10px; color:#fff;">Get in Touch</h6>
+        <p style="font-size:14px; margin:0 0 5px 0; color:#ddd;">
+          📧 <a href="mailto:mohammadnoor76354@gmail.com" style="color:#0ef; text-decoration:none;">mohammadnoor76354@gmail.com</a>
+        </p>
+        <p style="font-size:14px; margin:0 0 10px 0; color:#ddd;">
+          📞 <a href="tel:9938892084" style="color:#0ef; text-decoration:none;">+91 9938892084</a>
+        </p>
+
+        <!-- Social Icons -->
+        <div class="d-flex justify-content-center justify-content-md-start gap-3">
+          <a href="https://www.linkedin.com/in/mohammad-noor-514b84255/" target="_blank" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/MohammadNoor12345" target="_blank" class="social-link"><i class="fa-brands fa-github"></i></a>
+          <a href="https://wa.me/919938892084" target="_blank" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr style="border:0; border-top:1px solid rgba(255,255,255,0.2); margin:15px 0;">
+
+    <!-- Bottom Section -->
+    <div style="font-size:13px; color:#bbb;">
+      <p style="margin:0 0 5px 0;">&copy; <span id="year"></span> <span style="font-weight:bold; color:#fff;">Mohammad Noor</span>. All Rights Reserved.</p>
+      <p style="margin:0; color:#aaa;">Designed with ❤️ & Powered by <span style="color:#0ef;">Creativity</span></p>
+    </div>
+  </div>
+</footer>
+
+
+
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis"></script>
+
+  
+</body>
+</html>
